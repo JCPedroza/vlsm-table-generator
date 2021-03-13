@@ -12,14 +12,10 @@ form {
   border: solid 1px maroon;
 }
 
-.form-field {
-  margin: 0.5rem auto;
-  padding: 0.5rem;
-  border: solid 1px skyblue;
+input {
+  border: 2px solid gray;
 }
 
-.form-field-group {
-  margin: 0.5rem auto;
-  padding: 0.5rem;
-  border: solid 1px black;
+input:focus {
+  border: 2px solid black;
 }
