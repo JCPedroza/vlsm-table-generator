@@ -1,0 +1,25 @@
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem;
+  border: solid 1px maroon;
+}
+
+.form-field {
+  margin: 0.5rem auto;
+  padding: 0.5rem;
+  border: solid 1px skyblue;
+}
+
+.form-field-group {
+  margin: 0.5rem auto;
+  padding: 0.5rem;
+  border: solid 1px black;
+}
