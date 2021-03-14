@@ -3,6 +3,7 @@
 :root {
   --mywhite: #f9f9f9;
   --passivegray: #ededed;
+  --hovergray: #e5e5e5;
 }
 
 body {
@@ -19,7 +20,7 @@ form {
   display: flex;
   flex-direction: column;
   margin: 1rem;
-  padding: 1rem;
+  padding: 2rem;
   background-color: var(--mywhite);
   border: solid 1px maroon;
 }
@@ -35,10 +36,14 @@ legend {
   margin: 0 auto;
 }
 
-
 input {
   background-color: var(--passivegray);
   border: 2px solid transparent;
+  border-radius: 4px;
+}
+
+input:hover {
+  background-color: var(--hovergray);
 }
 
 input:focus {
@@ -46,6 +51,23 @@ input:focus {
   border: 2px solid black;
 }
 
+button {
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
 .form-field {
-  margin: 1rem auto;
+  margin: 1rem 0.5rem;
+}
+
+.name-net {
+  width: 15rem;
+}
+
+.size-net {
+  width: 8rem;
 }
