@@ -10,10 +10,9 @@ main {
   height: 100%;
 }
 
-input,
-input:focus {
+input {
   margin: 0;
-  padding: 0.30rem 0.50rem;
+  padding: 0;
   box-shadow: none;
   outline: none;
   border: none;

@@ -8,21 +8,33 @@
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/class.css">
+  <link rel="stylesheet" href="styles/label-float.css">
 </head>
 
 <body>
   <main>
     <form>
-      <div class="form-field-group">
+
+      <fieldset>
+        <legend>Network block address & mask</legend>
         <div class="form-field">
-          <input type="text" id="ip-block">
-          <label for="ip-block">block address</label>
+          <div class="float-field">
+            <input type="text" id="ip-block" class="float-input" placeholder="block address" required autofocus>
+            <label for="ip-block" class="float-label" data-content="block address">
+              <span class="float-hidden">block address</span>
+            </label>
+          </div>
         </div>
         <div class="form-field">
-          <input type="text" id="mask-block">
-          <label for="mask-block">block mask or prefix</label>
+          <div class="float-field">
+            <input type="text" id="mask-block" class="float-input" placeholder="mask or prefix">
+            <label for="ip-block" class="float-label" data-content="mask or prefix">
+              <span class="float-hidden">mask or prefix</span>
+            </label>
+          </div>
         </div>
-      </div>
+      </fieldset>
+
     </form>
   </main>
 </body>

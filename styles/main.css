@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root {
+  --mywhite: #f9f9f9;
+  --passivegray: #ededed;
+}
+
+body {
+  font-family: Montserrat, sans-serif;
+}
+
 main {
   display: flex;
   align-items: center;
@@ -9,13 +20,32 @@ form {
   flex-direction: column;
   margin: 1rem;
   padding: 1rem;
+  background-color: var(--mywhite);
   border: solid 1px maroon;
 }
 
+fieldset {
+  margin: 0.5rem auto;
+  padding: 1rem;
+  border: solid 1px black;
+}
+
+legend {
+  width: auto;
+  margin: 0 auto;
+}
+
+
 input {
-  border: 2px solid gray;
+  background-color: var(--passivegray);
+  border: 2px solid transparent;
 }
 
 input:focus {
+  background-color: var(--mywhite);
   border: 2px solid black;
+}
+
+.form-field {
+  margin: 1rem auto;
 }

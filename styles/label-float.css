@@ -1,0 +1,70 @@
+/* https://dev.to/adrianbdesigns/let-s-create-a-floating-label-input-with-html-and-css-only-4mo8 */
+
+.float-input {
+  padding: 1.8rem 1rem 0.6rem;
+  font-size: 1rem;
+}
+
+.float-input::placeholder {
+  color: rgba(0, 0, 0, 0);
+}
+
+.float-label {
+  display: block;
+  position: relative;
+  max-height: 0;
+  font-weight: 400;
+  pointer-events: none;
+}
+
+.float-label::before {
+  display: inline-block;
+  content: attr(data-content);
+  filter: blur(0);
+  backface-visibility: hidden;
+  transform-origin: left top;
+  transition: transform 0.2s ease;
+  left: 1rem;
+  position: relative;
+}
+
+.float-label::after {
+  bottom: 1rem;
+  content: "";
+  height: 0.1rem;
+  position: absolute;
+  transition: transform 180ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  left: 0;
+  top: 100%;
+  margin-top: -0.1rem;
+  transform: scale3d(0, 1, 1);
+  width: 100%;
+}
+
+.float-input:focus + .float-label::after {
+  transform: scale3d(1, 1, 1);
+  opacity: 1;
+}
+
+.float-input:placeholder-shown + .float-label::before {
+  transform: translate3d(0, -2.2rem, 0) scale3d(1, 1, 1);
+}
+
+.float-label::before,
+.float-input:focus + .float-label::before {
+  transform: translate3d(0, -3.12rem, 0) scale3d(0.82, 0.82, 1);
+}
+
+.float-hidden {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
