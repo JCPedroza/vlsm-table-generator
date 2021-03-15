@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-  <title>VLSM</title>
+  <title>VLSM Table Generator</title>
   <meta charset="UTF-8">
 
   <link rel="stylesheet" href="styles/reset.css">
@@ -12,13 +12,14 @@
 
   <script src="scripts/initialize.js" defer></script>
   <script src="scripts/validation.js" defer></script>
+  <script src="scripts/buttons.js" defer></script>
 </head>
 
 <body>
   <main>
     <form>
       <fieldset>
-        <legend>Network block address & mask</legend>
+        <legend>Network Block Address & Mask</legend>
         <div class="form-field">
           <div class="float-field">
             <input type="text" id="ip-block" class="float-input" placeholder="block address" required autofocus>
@@ -38,27 +39,33 @@
       </fieldset>
 
       <fieldset>
-        <legend>Subnetworks' details</legend>
-        <div id="subnet-details-0" class="row">
-          <div class="form-field">
-            <div class="float-field">
-              <input type="text" id="name-net-0" class="float-input name-net" placeholder="name">
-              <label for="name-net-0" class="float-label" data-content="name">
-                <span class="float-hidden">name</span>
-              </label>
+        <legend>Subnets' Details</legend>
+        <div class="minplus">
+          <button type="button" id="button-minus" class="button-mini">-</button>
+          <button type="button" id="button-plus" class="button-mini">+</button>
+        </div>
+        <div id="subnet-list">
+          <div id="subnet-details-0" class="subnet-details">
+            <span id="subnet-number-0" class="subnet-number">#1</span>
+            <div class="form-field">
+              <div class="float-field">
+                <input type="text" id="name-net-0" class="float-input name-net" placeholder="name">
+                <label for="name-net-0" id="label-name-net-0" class="float-label" data-content="name">
+                  <span class="float-hidden">name</span>
+                </label>
+              </div>
             </div>
-          </div>
-          <div class="form-field">
-            <div class="float-field">
-              <input type="text" id="size-net-0" class="float-input size-net" placeholder="size">
-              <label for="size-net-0" class="float-label" data-content="size">
-                <span class="float-hidden">size</span>
-              </label>
+            <div class="form-field">
+              <div class="float-field">
+                <input type="text" id="size-net-0" class="float-input size-net" placeholder="size">
+                <label for="size-net-0" id="label-size-net-0" class="float-label" data-content="size">
+                  <span class="float-hidden">size</span>
+                </label>
+              </div>
             </div>
           </div>
         </div>
       </fieldset>
-
       <button type="button" id="button-generate">generate</button>
     </form>
   </main>

@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 
 :root {
   --mywhite: #f9f9f9;
   --passivegray: #ededed;
   --hovergray: #e5e5e5;
+  --chillgreen: #32a866;
+  --activegreen: #298651;
 }
 
 body {
@@ -40,6 +43,7 @@ input {
   background-color: var(--passivegray);
   border: 2px solid transparent;
   border-radius: 4px;
+  font-family: 'Roboto Mono', monospace;
 }
 
 input:hover {
@@ -53,11 +57,28 @@ input:focus {
 
 button {
   cursor: pointer;
+  border: 1px solid var(--chillgreen);
+  background-color: var(--mywhite);
+  color: var(--chillgreen);
 }
 
-.row {
+button:hover {
+  background-color: var(--chillgreen);
+  color: var(--mywhite);
+}
+
+button:active {
+  background-color: var(--activegreen);
+}
+
+.subnet-details {
   display: flex;
   flex-direction: row;
+  align-items: center;
+}
+
+.subnet-number {
+  margin: auto 1rem;
 }
 
 .form-field {
@@ -70,4 +91,18 @@ button {
 
 .size-net {
   width: 8rem;
+}
+
+.minplus {
+  display: flex;
+  flex-direction: row;
+  float: right;
+  font-size: 2rem;
+}
+
+.button-mini {
+  height: 1.5rem;
+  width: 1.5rem;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
 }
