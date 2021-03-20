@@ -1,8 +1,11 @@
 (() => {
   'use strict';
+  const {
+    isInteger
+  } = window.Number;
 
   const numIsPositiveInt = (num) => {
-    return num >= 0 && num.isInteger;
+    return num >= 0 && isInteger(num);
   };
 
   const strIsPositiveInt = (str) => {

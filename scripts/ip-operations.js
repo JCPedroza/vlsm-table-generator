@@ -6,6 +6,7 @@
     log2,
     pow
   } = window.Math;
+
   const {
     numIsPositiveInt,
     strIsIpv4
@@ -30,7 +31,7 @@
   };
 
   /**
-   * Convert ipv4 string into its integer number equivalent.
+   * Convert ipv4 string into its integer equivalent.
    * @param {String} ipv4 IPv4 dot notation string to convert.
    * @returns {Number} Integer representation of input ipv4 string.
    */
@@ -58,9 +59,33 @@
     return 32 - ceil(log2(nHosts + 2));
   };
 
+  /**
+   * Calculate the total number of IP addresses used by the prefix.
+   * @param {Number} prefix Network mask prefix.
+   * @returns {Number} Total number of IP addresses used by the prefix.
+   */
+  const prefixSize = (prefix) => {
+    if (!numIsPositiveInt(prefix)) {
+      throw new Error(`Invalid positive int: ${prefix}`);
+    }
+    return pow(2, 32 - prefix);
+  };
+
+  const prefixToMask = (prefix) => {
+    if (!numIsPositiveInt(prefix)) {
+      throw new Error(`Invalid positive int: ${prefix}`);
+    }
+
+    let maskInt = pow(2, prefix) - 1;
+    maskInt *= pow(2, 32 - prefix);
+    return intToIpv4(maskInt);
+  };
+
   window.vlsm.ipOperations = {
     intToIpv4,
     ipv4ToInt,
-    nHostsToPrefix
+    nHostsToPrefix,
+    prefixSize,
+    prefixToMask
   };
 })();
