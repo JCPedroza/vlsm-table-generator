@@ -1,20 +1,22 @@
 (() => {
   'use strict';
 
-  // TODO: specity type of input in function name? strIsPositiveInt
+  const numIsPositiveInt = (num) => {
+    return num >= 0 && num.isInteger;
+  };
 
-  const isPositiveInt = (str) => {
+  const strIsPositiveInt = (str) => {
     const regExp = /^\+?(0|[1-9]\d*)$/;
     return regExp.test(str);
   };
 
-  const isIpv4 = (str) => {
+  const strIsIpv4 = (str) => {
     // Tests 010.010.010.010 as valid
     const regExp = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
     return regExp.test(str);
   };
 
-  const isIPv4Prefix = (str) => {
+  const strIsIPv4Prefix = (str) => {
     const hasSlash = str[0] === '/';
     const num = parseInt(str.slice(1));
     const inRange = num >= 8 && num <= 31;
@@ -22,8 +24,9 @@
   };
 
   window.vlsm.validation = {
-    isPositiveInt,
-    isIpv4,
-    isIPv4Prefix
+    numIsPositiveInt,
+    strIsPositiveInt,
+    strIsIpv4,
+    strIsIPv4Prefix
   };
 })();
