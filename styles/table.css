@@ -1,0 +1,16 @@
+table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  padding: 1rem;
+  border: 1px solid black;
+}
+
+th {
+  text-align: left;
+  background-color: var(--chillgreen);
+  color: var(--mywhite);
+}
+
+td {
+  border: 1px solid blue;
+}
