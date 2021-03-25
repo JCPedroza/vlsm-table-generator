@@ -1,23 +1,27 @@
 (() => {
   'use strict';
 
-  const rowHeader = (locals) => {
-    const reducer = (acc, cur) => `${acc}<th>${cur}</th>`;
-    const cols = locals.reduce(reducer, '');
-    return `<tr>${cols}</tr>`;
-  };
-
   const row = (locals) => {
     const reducer = (acc, cur) => `${acc}<td>${cur}</td>`;
     const cols = locals.reduce(reducer, '');
     return `<tr>${cols}</tr>`;
   };
 
-  const table = (headers, rows) => {
+  const tableHead = (rowHeaders) => {
+    const reducer = (acc, cur) => `${acc}<th>${cur}</th>`;
+    const cols = rowHeaders.reduce(reducer, '');
+    return `<thead><tr>${cols}</tr></thead>`;
+  };
+
+  const tableBody = (rows) => {
     const reducer = (acc, cur) => `${acc}${row(cur)}`;
-    const tableHeaders = rowHeader(headers);
-    const tableBody = rows.reduce(reducer, tableHeaders);
-    return `<table>${tableBody}</table>`;
+    return `<tbody>${rows.reduce(reducer, '')}</tbody>`;
+  };
+
+  const table = (headers, rows) => {
+    const thead = tableHead(headers);
+    const tbody = tableBody(rows);
+    return `<table>${thead}${tbody}</table>`;
   };
 
   const headers = ['1', '2', '3'];
