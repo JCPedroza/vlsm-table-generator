@@ -1,36 +1,28 @@
 (() => {
   'use strict';
 
-  const row = (locals) => {
+  const buildTableRow = (locals) => {
     const reducer = (acc, cur) => `${acc}<td>${cur}</td>`;
     const cols = locals.reduce(reducer, '');
     return `<tr>${cols}</tr>`;
   };
 
-  const tableHead = (rowHeaders) => {
+  const buildTableHead = (rowHeaders) => {
     const reducer = (acc, cur) => `${acc}<th>${cur}</th>`;
     const cols = rowHeaders.reduce(reducer, '');
     return `<thead><tr>${cols}</tr></thead>`;
   };
 
-  const tableBody = (rows) => {
-    const reducer = (acc, cur) => `${acc}${row(cur)}`;
+  const buildTableBody = (rows) => {
+    const reducer = (acc, cur) => `${acc}${buildTableRow(cur)}`;
     return `<tbody>${rows.reduce(reducer, '')}</tbody>`;
   };
 
-  const table = (headers, rows) => {
-    const thead = tableHead(headers);
-    const tbody = tableBody(rows);
+  const buildTable = (headers, rows) => {
+    const thead = buildTableHead(headers);
+    const tbody = buildTableBody(rows);
     return `<table>${thead}${tbody}</table>`;
   };
 
-  const headers = ['1', '2', '3'];
-  const rowA = ['Uno', 'Dos', 'Tres'];
-  const rowB = ['One', 'Two', 'Three'];
-  const rows = [rowA, rowB];
-
-  const tableContainer = document.getElementById('table-container');
-  tableContainer.innerHTML = table(headers, rows);
-
-  window.vlsm.templates.table = table;
+  window.vlsm.templates.table = buildTable;
 })();
