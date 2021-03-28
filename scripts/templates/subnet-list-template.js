@@ -1,5 +1,7 @@
 (() => {
   'use strict';
+  const { parseHtmlStr } = window.vlsm.templates.utils;
+
   const targets = {
     NAME: 'name',
     SIZE: 'size'
@@ -37,7 +39,7 @@
     const spanAttr = `ìd="subnet-number-${idInt}" class="subnet-number"`;
     const span = `<span ${spanAttr}>#${idInt + 1}</span>`;
     const divAttr = `id="subnet-details-${idInt}" class="subnet-details"`;
-    return `<div ${divAttr}>${span}${name}${size}</div>`;
+    return parseHtmlStr(`<div ${divAttr}>${span}${name}${size}</div>`);
   };
 
   window.vlsm.templates.subnetList = buildSubnet;

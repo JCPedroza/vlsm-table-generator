@@ -1,5 +1,6 @@
 (() => {
   'use strict';
+  const { parseHtmlStr } = window.vlsm.templates.utils;
 
   const buildTableRow = (locals) => {
     const reducer = (acc, cur) => `${acc}<td>${cur}</td>`;
@@ -21,7 +22,7 @@
   const buildTable = (headers, rows) => {
     const thead = buildTableHead(headers);
     const tbody = buildTableBody(rows);
-    return `<table>${thead}${tbody}</table>`;
+    return parseHtmlStr(`<table>${thead}${tbody}</table>`);
   };
 
   window.vlsm.templates.table = buildTable;
