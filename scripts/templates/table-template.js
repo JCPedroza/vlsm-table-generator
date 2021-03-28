@@ -3,6 +3,8 @@
   const { parseHtmlStr } = window.vlsm.templates.utils;
 
   const buildTableRow = (locals) => {
+    console.log('buildTableRow locals', locals)
+
     const reducer = (acc, cur) => `${acc}<td>${cur}</td>`;
     const cols = locals.reduce(reducer, '');
     return `<tr>${cols}</tr>`;

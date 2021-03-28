@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles/label-float.css">
   <link rel="stylesheet" href="styles/table.css">
 
-  <script src="scripts/initialize.js" defer></script>
+  <script src="scripts/namespaces.js" defer></script>
   <script src="scripts/templates/utils.js" defer></script>
   <script src="scripts/templates/table-template.js" defer></script>
   <script src="scripts/templates/subnet-list-template.js" defer></script>
@@ -52,13 +52,18 @@
           <button type="button" id="button-minus" class="button-mini">-</button>
           <button type="button" id="button-plus" class="button-mini">+</button>
         </div>
+
+        <!--Dynamically populated. -->
         <div id="subnet-list"></div>
+
       </fieldset>
 
       <button type="button" id="button-generate">generate</button>
     </form>
 
+    <!-- Dynamically populated. -->
     <div id="table-container" class="table-container"></div>
+
   </main>
 </body>
 

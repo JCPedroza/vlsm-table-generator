@@ -1,12 +1,15 @@
 (() => {
   'use strict';
+  const vlsmTable = window.vlsm.vlsmTable;
   const buildSubnet = window.vlsm.templates.subnetList;
-  const { nHostsToPrefix } = window.vlsm.ipOperations;
+  const buildTable = window.vlsm.templates.table;
+  const { infoToRow } = window.vlsm.templates.utils;
 
   const generateButton = document.getElementById('button-generate');
   const removeSubnetButton = document.getElementById('button-minus');
   const addSubnetButton = document.getElementById('button-plus');
   const subnetList = document.getElementById('subnet-list');
+  const tableContainer = document.getElementById('table-container');
 
   const subnets = [];
 
@@ -31,12 +34,20 @@
   };
 
   const generateTable = () => {
+    const rootIp = document.getElementById('ip-block').value;
     const netInfo = subnets.map((net) => getSubnetInfo(net));
     netInfo.sort((a, b) => a.size - b.size);
-    netInfo.forEach((net) => {
-      console.log(net.size, nHostsToPrefix(net.size));
-      console.log();
-    });
+
+    console.log('netInfo', netInfo)
+
+    const tableBody = vlsmTable(rootIp, netInfo);
+
+    console.log('tableBody', tableBody)
+
+    const rowInfo = tableBody.map((info) => infoToRow(info));
+
+    const table = buildTable([], rowInfo);
+    tableContainer.innerHTML = table;
   };
 
   removeSubnetButton.onclick = removeSubnet;

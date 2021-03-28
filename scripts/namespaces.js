@@ -1,5 +1,5 @@
 /**
- * Initial state and namespace creation.
+ * Creating namespaces for modules.
  */
 (() => {
   'use strict';
