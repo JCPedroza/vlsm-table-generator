@@ -37,17 +37,14 @@
     const rootIp = document.getElementById('ip-block').value;
     const netInfo = subnets.map((net) => getSubnetInfo(net));
     netInfo.sort((a, b) => a.size - b.size);
-
-    console.log('netInfo', netInfo)
-
     const tableBody = vlsmTable(rootIp, netInfo);
-
-    console.log('tableBody', tableBody)
-
     const rowInfo = tableBody.map((info) => infoToRow(info));
-
     const table = buildTable([], rowInfo);
-    tableContainer.innerHTML = table;
+
+    if (tableContainer.firstChild) {
+      tableContainer.removeChild(tableContainer.firstChild);
+    }
+    tableContainer.appendChild(table);
   };
 
   removeSubnetButton.onclick = removeSubnet;

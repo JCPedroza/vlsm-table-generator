@@ -34,16 +34,10 @@
   };
 
   const tableValues = (rootIpv4, subnets) => {
-    console.log('tableValues()', rootIpv4, subnets)
-
     const rows = [];
     let currentIp = rootIpv4;
 
     for (let i = 0; i < subnets.length; i++) {
-
-      console.log('loop', subnets[i])
-      console.log('loop', subnets[i].name, subnets[i].size)
-
       const newRow = rowValues(subnets[i].name, subnets[i].size, currentIp);
       currentIp = newRow.next;
       rows.push(newRow);
