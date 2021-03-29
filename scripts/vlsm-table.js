@@ -12,7 +12,7 @@
     const prefix = nHostsToPrefix(size);
     const network = ipv4ToInt(ipv4);
     const totalSize = prefixSize(prefix);
-    const maxHosts = totalSize - 2;
+    const max = totalSize - 2;
     const broadcast = network + totalSize - 1;
     const first = network + 1;
     const last = broadcast - 1;
@@ -29,7 +29,7 @@
       next: intToIpv4(next),
       mask,
       prefix,
-      maxHosts
+      max
     };
   };
 

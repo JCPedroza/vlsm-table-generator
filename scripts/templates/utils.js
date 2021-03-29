@@ -1,5 +1,7 @@
 (() => {
   'use strict';
+  const showCols = ['name', 'size', 'max', 'network', 'first', 'last',
+    'broadcast'];
 
   const parseHtmlStr = (htmlStr) => {
     const wrapper = document.createElement('div');
@@ -8,12 +10,12 @@
   };
 
   const infoToRow = (info) => {
-    return [info.name, info.size, info.network, info.first, info.last,
-      info.broadcast, info.next];
+    return showCols.map((colName) => info[colName]);
   };
 
   window.vlsm.templates.utils = {
     parseHtmlStr,
-    infoToRow
+    infoToRow,
+    showCols
   };
 })();

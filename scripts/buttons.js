@@ -3,7 +3,7 @@
   const vlsmTable = window.vlsm.vlsmTable;
   const buildSubnet = window.vlsm.templates.subnetList;
   const buildTable = window.vlsm.templates.table;
-  const { infoToRow } = window.vlsm.templates.utils;
+  const { infoToRow, showCols } = window.vlsm.templates.utils;
 
   const generateButton = document.getElementById('button-generate');
   const removeSubnetButton = document.getElementById('button-minus');
@@ -39,7 +39,7 @@
     netInfo.sort((a, b) => a.size - b.size);
     const tableBody = vlsmTable(rootIp, netInfo);
     const rowInfo = tableBody.map((info) => infoToRow(info));
-    const table = buildTable([], rowInfo);
+    const table = buildTable(showCols, rowInfo);
 
     if (tableContainer.firstChild) {
       tableContainer.removeChild(tableContainer.firstChild);
