@@ -1,7 +1,6 @@
 (() => {
   'use strict';
-  const showCols = ['name', 'size', 'max', 'network', 'first', 'last',
-    'broadcast'];
+  const { getCheckedCols } = window.vlsm.valueGetters;
 
   const parseHtmlStr = (htmlStr) => {
     const wrapper = document.createElement('div');
@@ -10,12 +9,11 @@
   };
 
   const infoToRow = (info) => {
-    return showCols.map((colName) => info[colName]);
+    return getCheckedCols().map((colName) => info[colName]);
   };
 
   window.vlsm.templates.utils = {
     parseHtmlStr,
-    infoToRow,
-    showCols
+    infoToRow
   };
 })();

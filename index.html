@@ -8,10 +8,13 @@
 
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/form.css">
   <link rel="stylesheet" href="styles/label-float.css">
   <link rel="stylesheet" href="styles/table.css">
 
   <script src="scripts/namespaces.js" defer></script>
+  <script src="scripts/value-getters.js" defer></script>
+
   <script src="scripts/templates/utils.js" defer></script>
   <script src="scripts/templates/table-template.js" defer></script>
   <script src="scripts/templates/subnet-list-template.js" defer></script>
@@ -26,6 +29,52 @@
 <body>
   <main>
     <form>
+      <fieldset>
+        <legend>Table Columns</legend>
+        <div class="form-multicheckbox">
+          <div class="form-checkbox">
+            <input type="checkbox" id="checkbox-name" checked>
+            <label for="checkbox-name">name</label>
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="checkbox-size" checked>
+            <label for="checkbox-size">size</label>
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="checkbox-max" checked>
+            <label for="checkbox-max">max</label>
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="checkbox-network" checked>
+            <label for="checkbox-network">network</label>
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="checkbox-first">
+            <label for="checkbox-first">first</label>
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="checkbox-last">
+            <label for="checkbox-last">last</label>
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="checkbox-broadcast" checked>
+            <label for="checkbox-broadcast">broadcast</label>
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="checkbox-mask" checked>
+            <label for="checkbox-mask">mask</label>
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="checkbox-prefix" checked>
+            <label for="checkbox-prefix">prefix</label>
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="checkbox-next">
+            <label for="checkbox-next">next</label>
+          </div>
+        </div>
+      </fieldset>
+
       <fieldset>
         <legend>Network Block Address & Mask</legend>
         <div class="form-field">

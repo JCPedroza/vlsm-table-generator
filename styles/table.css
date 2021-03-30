@@ -27,6 +27,5 @@ tbody tr:last-of-type {
 }
 
 tbody tr:hover {
-  text-shadow: -0.06ex 0 black, 0.06ex 0 black;
+  text-shadow: var(--hovershadow);
 }
-
