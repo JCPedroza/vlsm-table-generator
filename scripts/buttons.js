@@ -37,7 +37,7 @@
   const generateTable = () => {
     const rootIp = document.getElementById('ip-block').value;
     const netInfo = subnets.map((net) => getSubnetInfo(net));
-    netInfo.sort((a, b) => a.size - b.size);
+    netInfo.sort((a, b) => b.size - a.size);
     const tableBody = vlsmTable(rootIp, netInfo);
     const rowInfo = tableBody.map((info) => infoToRow(info));
     const table = buildTable(getCheckedCols(), rowInfo);
